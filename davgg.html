@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KrazyDav.GG</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+            background-color: #3768b5;
+            position: relative;
+        }
+
+        /* Background image layer */
+        .bg {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+        }
+
+        .bg::before {
+            content: "";
+            width: 44%;
+            aspect-ratio: 16 / 9;
+            background:
+                linear-gradient(rgba(55, 104, 181, 0.7), rgba(55, 104, 181, 0.7)),
+                url("https://res.cloudinary.com/dz6memin4/image/upload/v1769987818/Rebrand2025_pvnvww.jpg")
+                center / contain no-repeat;
+            opacity: 0;
+            transform: translateY(80px);
+            animation: imageFlyUpFade 2s ease-out forwards;
+        }
+
+        /* Main text */
+        .container {
+            text-align: center;
+            color: white;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        h1 {
+            font-size: 5em;
+            margin: 0;
+        }
+
+        p {
+            margin-top: 12px;
+            font-size: 2em;
+            opacity: 0.9;
+        }
+
+        /* Bottom center logos */
+        .logos {
+            position: absolute;
+            bottom: 50px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logos a img {
+            width: 60px;
+            height: auto;
+            opacity: 0; /* start fully hidden */
+            transform: translateY(20px);
+            animation: logoFlyUpFade 2s ease forwards;
+        }
+
+        .logos a:nth-child(1) img {
+            animation-delay: 2s; /* YouTube logo delay */
+        }
+
+        .logos a:nth-child(2) img {
+            animation-delay: 2.3s; /* Twitch logo delay */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes imageFlyUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes logoFlyUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 0.3; /* faded like background */
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+
+    <div class="container">
+        <h1>Welcome to KrazyDav.GG</h1>
+        <p>Coming soon..</p>
+    </div>
+
+    <!-- Bottom center logos -->
+    <div class="logos">
+        <a href="https://www.youtube.com/@KrazyDavLP" target="_blank">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995296/ytlogo_atghhp.webp" alt="YouTube Logo">
+        </a>
+        <a href="https://www.twitch.tv/krazydavlp" target="_blank">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995355/twitchlogo_fbgy9z.webp" alt="Twitch Logo">
+        </a>
+    </div>
+</body>
+</html>
