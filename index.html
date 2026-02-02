@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>KrazyDav.GG</title>
+    <title>Welcome to KrazyDav.GG</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dz6memin4/image/upload/v1769987818/Rebrand2025_pvnvww.jpg">
@@ -15,16 +15,41 @@
         }
 
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #3768b5;
             font-family: Arial, Helvetica, sans-serif;
             overflow: hidden;
-            background-color: #3768b5;
             position: relative;
+            color: white;
         }
 
-        /* Background image layer */
+        /* Top Navigation */
+        .top-nav {
+            position: absolute;
+            top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            font-size: 1.4em;
+            font-weight: bold;
+            padding: 10px 22px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Background image behind text */
         .bg {
             position: fixed;
             inset: 0;
@@ -47,99 +72,89 @@
             animation: imageFlyUpFade 2s ease-out forwards;
         }
 
+        /* Center content */
         .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            color: white;
-            opacity: 0;
             animation: fadeIn 2s ease forwards;
         }
 
         h1 {
             font-size: 5em;
-            margin: 0;
+            margin-bottom: 10px;
         }
 
         p {
-            margin-top: 12px;
             font-size: 2em;
-            opacity: 0.9;
+            margin-bottom: 30px;
         }
 
-        /* Bottom center logos */
+        /* Bottom logos */
         .logos {
             position: absolute;
             bottom: 50px;
+            width: 100%;
             display: flex;
-            gap: 20px;
             justify-content: center;
-            align-items: center;
+            gap: 20px;
         }
 
-        .logos a img {
+        .logos img {
             width: 60px;
-            height: auto;
             opacity: 0;
             transform: translateY(20px);
             animation: logoFlyUpFade 2s ease forwards;
         }
 
-        .logos a:nth-child(1) img {
-            animation-delay: 2s;
-        }
-
-        .logos a:nth-child(2) img {
-            animation-delay: 2.3s;
-        }
+        .logos a:nth-child(1) img { animation-delay: 2s; }
+        .logos a:nth-child(2) img { animation-delay: 2.3s; }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes imageFlyUpFade {
-            from {
-                opacity: 0;
-                transform: translateY(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(100px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes logoFlyUpFade {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 0.3;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 0.3; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
+
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="smp.html" class="nav-btn">MCSMP</a>
+    </div>
+
+    <!-- Background Image -->
     <div class="bg"></div>
 
+    <!-- Center Content -->
     <div class="container">
         <h1>Welcome to KrazyDav.GG</h1>
         <p>Coming soon..</p>
     </div>
 
+    <!-- Bottom Logos -->
     <div class="logos">
         <a href="https://www.youtube.com/@KrazyDavLP" target="_blank">
-            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995296/ytlogo_atghhp.webp" alt="YouTube Logo">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995296/ytlogo_atghhp.webp" alt="YouTube">
         </a>
         <a href="https://www.twitch.tv/krazydavlp" target="_blank">
-            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995355/twitchlogo_fbgy9z.webp" alt="Twitch Logo">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995355/twitchlogo_fbgy9z.webp" alt="Twitch">
         </a>
     </div>
+
 </body>
 </html>
