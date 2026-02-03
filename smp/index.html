@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>KrazyDav.gg SMP</title>
+    <title>KrazyDav.gg SMP!</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dz6memin4/image/upload/v1769987818/Rebrand2025_pvnvww.jpg">
@@ -56,12 +56,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: -1;
+            z-index: -2;
         }
 
         .bg::before {
             content: "";
-            width: 42%;
+            width: 50%;
             aspect-ratio: 16 / 9;
             background:
                 linear-gradient(rgba(55, 104, 181, 0.7), rgba(55, 104, 181, 0.7)),
@@ -81,23 +81,25 @@
             align-items: center;
             text-align: center;
             animation: fadeIn 2s ease forwards;
+            z-index: 3;
         }
 
         h1 {
             font-size: 5em;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         p {
-            font-size: 1.6em;
-            max-width: 800px;
-            margin-bottom: 25px;
+            font-size: 2em;
+            margin-bottom: 20px;
         }
 
         /* Discord icon */
         .discord-link img {
             width: 70px;
-            opacity: 0.85;
+            margin-bottom: 20px;
+            cursor: pointer;
+            opacity: 0.95;
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
@@ -114,17 +116,15 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            z-index: 3;
         }
 
         .logos img {
             width: 60px;
             opacity: 0;
-            transform: translateY(20px);
-            animation: logoFlyUpFade 2s ease forwards;
+            transform: translateY(10px);
+            animation: fadeIn 2s ease forwards;
         }
-
-        .logos a:nth-child(1) img { animation-delay: 2s; }
-        .logos a:nth-child(2) img { animation-delay: 2.3s; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -135,34 +135,27 @@
             from { opacity: 0; transform: translateY(100px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes logoFlyUpFade {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 0.3; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
 
     <!-- Top Navigation -->
     <div class="top-nav">
-        <a href="/" class="nav-btn">HOME</a>
-        <a href="/smp/" class="nav-btn">MCSMP</a>
+        <a href="../" class="nav-btn">HOME</a>
+        <a href="./" class="nav-btn">MCSMP</a>
     </div>
 
-    <!-- Background Image -->
+    <!-- Background -->
     <div class="bg"></div>
 
     <!-- Center Content -->
     <div class="container">
         <h1>KrazyDav.gg SMP!</h1>
-        <p>
-            Welcome to The KrazyDav.gg SMP! To join, join the Discord Server and look under
-            <strong>#smp-info-modpack</strong>.
-        </p>
+        <p>Welcome to The KrazyDav.gg SMP! To join, join the Discord Server and look under #smp-info-modpack.</p>
 
+        <!-- Discord icon under body text -->
         <a class="discord-link" href="https://discord.gg/4V9fQgtzhw" target="_blank">
-            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Join our Discord">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Join Discord">
         </a>
     </div>
 
