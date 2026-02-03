@@ -94,12 +94,12 @@
             margin-bottom: 20px;
         }
 
-        /* Discord icon under text */
+        /* Discord icon */
         .discord-link img {
             width: 70px;
             margin-bottom: 20px;
             cursor: pointer;
-            opacity: 1;
+            opacity: 0.95;
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
@@ -121,15 +121,12 @@
 
         .logos img {
             width: 60px;
-            opacity: 1;
-            transform: translateY(20px);
-            animation: logoFlyUpFade 2s ease forwards;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 2s ease forwards;
         }
 
-        .logos a:nth-child(1) img { animation-delay: 1s; }
-        .logos a:nth-child(2) img { animation-delay: 1s; }
-
-        /* ===== SKIB MINI GAME ===== */
+        /* SKIB mini game */
         #skib {
             position: absolute;
             width: 80px;
@@ -152,11 +149,6 @@
             from { opacity: 0; transform: translateY(100px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes logoFlyUpFade {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 0.3; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
@@ -167,7 +159,7 @@
         <a href="smp/" class="nav-btn">MCSMP</a>
     </div>
 
-    <!-- Background Image -->
+    <!-- Background -->
     <div class="bg"></div>
 
     <!-- Center Content -->
@@ -175,9 +167,8 @@
         <h1>Welcome to KrazyDav.GG</h1>
         <p>More Content Coming Soon...</p>
 
-        <!-- Discord icon under body text -->
         <a class="discord-link" href="https://discord.gg/4V9fQgtzhw" target="_blank">
-            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Join our Discord">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Join Discord">
         </a>
     </div>
 
@@ -191,7 +182,7 @@
         </a>
     </div>
 
-    <!-- ===== SKIB MINI GAME ELEMENTS ===== -->
+    <!-- SKIB Mini Game -->
     <img id="skib" src="assets/SKIB.png" alt="SKIB">
     <audio id="hitSound" src="assets/ow.mp3"></audio>
 
@@ -199,8 +190,7 @@
         const skib = document.getElementById("skib");
         const sound = document.getElementById("hitSound");
 
-        // Set volume to 10%
-        sound.volume = 0.1;
+        sound.volume = 0.3;
 
         function randomPosition() {
             const padding = 140;
@@ -221,9 +211,7 @@
             randomPosition();
         });
 
-        window.addEventListener("load", () => {
-            randomPosition();
-        });
+        window.addEventListener("load", randomPosition);
     </script>
 
 </body>
