@@ -81,6 +81,7 @@
             align-items: center;
             text-align: center;
             animation: fadeIn 2s ease forwards;
+            z-index: 2;
         }
 
         h1 {
@@ -101,6 +102,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            z-index: 2;
         }
 
         .logos img {
@@ -112,6 +114,20 @@
 
         .logos a:nth-child(1) img { animation-delay: 2s; }
         .logos a:nth-child(2) img { animation-delay: 2.3s; }
+
+        /* ===== SKIB MINI GAME ===== */
+        #skib {
+            position: absolute;
+            width: 80px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.2s ease;
+            z-index: 5;
+        }
+
+        #skib.show {
+            opacity: 1;
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -133,8 +149,8 @@
 
     <!-- Top Navigation -->
     <div class="top-nav">
-        <a href="/" class="nav-btn">HOME</a>
-        <a href="/smp/" class="nav-btn">MCSMP</a>
+        <a href="./" class="nav-btn">HOME</a>
+        <a href="smp/" class="nav-btn">MCSMP</a>
     </div>
 
     <!-- Background Image -->
@@ -155,6 +171,38 @@
             <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995355/twitchlogo_fbgy9z.webp" alt="Twitch">
         </a>
     </div>
+
+    <!-- ===== SKIB MINI GAME ELEMENTS ===== -->
+    <img id="skib" src="assets/SKIB.png" alt="SKIB">
+    <audio id="hitSound" src="assets/ow.mp3"></audio>
+
+    <script>
+        const skib = document.getElementById("skib");
+        const sound = document.getElementById("hitSound");
+
+        function randomPosition() {
+            const padding = 120;
+            const x = Math.random() * (window.innerWidth - padding);
+            const y = Math.random() * (window.innerHeight - padding);
+
+            skib.style.left = x + "px";
+            skib.style.top = y + "px";
+
+            skib.classList.remove("show");
+            void skib.offsetWidth; // restart fade animation
+            skib.classList.add("show");
+        }
+
+        skib.addEventListener("click", () => {
+            sound.currentTime = 0;
+            sound.play();
+            randomPosition();
+        });
+
+        window.addEventListener("load", () => {
+            randomPosition();
+        });
+    </script>
 
 </body>
 </html>
