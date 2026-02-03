@@ -81,7 +81,7 @@
             align-items: center;
             text-align: center;
             animation: fadeIn 2s ease forwards;
-            z-index: 3; /* Text above SKIB */
+            z-index: 3;
         }
 
         h1 {
@@ -91,7 +91,21 @@
 
         p {
             font-size: 2em;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* Discord icon under text */
+        .discord-link img {
+            width: 70px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            opacity: 0.9;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .discord-link img:hover {
+            transform: scale(1.1);
+            opacity: 1;
         }
 
         /* Bottom logos */
@@ -122,7 +136,7 @@
             cursor: pointer;
             opacity: 0;
             transition: opacity 0.6s ease, transform 0.2s ease;
-            z-index: 1; /* Behind text, above background */
+            z-index: 1;
         }
 
         #skib.show {
@@ -160,6 +174,11 @@
     <div class="container">
         <h1>Welcome to KrazyDav.GG</h1>
         <p>More Content Coming Soon...</p>
+
+        <!-- Discord icon under body text -->
+        <a class="discord-link" href="https://discord.gg/4V9fQgtzhw" target="_blank">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Join our Discord">
+        </a>
     </div>
 
     <!-- Bottom Logos -->
@@ -180,7 +199,8 @@
         const skib = document.getElementById("skib");
         const sound = document.getElementById("hitSound");
 
-        sound.volume = 0.05;
+        // Set volume to 30%
+        sound.volume = 0.3;
 
         function randomPosition() {
             const padding = 140;
@@ -191,7 +211,7 @@
             skib.style.top = y + "px";
 
             skib.classList.remove("show");
-            void skib.offsetWidth; // restart fade animation
+            void skib.offsetWidth;
             skib.classList.add("show");
         }
 
