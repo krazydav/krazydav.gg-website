@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to KrazyDav.GG</title>
 
     <!-- Favicon -->
@@ -22,7 +23,8 @@
             color: white;
         }
 
-        /* Top Navigation */
+        /* ================= TOP NAV ================= */
+
         .top-nav {
             position: absolute;
             top: 30px;
@@ -39,17 +41,18 @@
             font-size: 1.4em;
             font-weight: bold;
             padding: 10px 22px;
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255,255,255,0.6);
             border-radius: 10px;
             transition: transform 0.2s ease, background 0.2s ease;
         }
 
         .nav-btn:hover {
             transform: scale(1.2);
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,0.15);
         }
 
-        /* Background image behind text */
+        /* ================= BACKGROUND ================= */
+
         .bg {
             position: fixed;
             inset: 0;
@@ -64,7 +67,7 @@
             width: 44%;
             aspect-ratio: 16 / 9;
             background:
-                linear-gradient(rgba(55, 104, 181, 0.7), rgba(55, 104, 181, 0.7)),
+                linear-gradient(rgba(55,104,181,0.7), rgba(55,104,181,0.7)),
                 url("https://res.cloudinary.com/dz6memin4/image/upload/v1769987818/Rebrand2025_pvnvww.jpg")
                 center / contain no-repeat;
             opacity: 0;
@@ -72,7 +75,8 @@
             animation: imageFlyUpFade 2s ease-out forwards;
         }
 
-        /* Center content */
+        /* ================= CENTER CONTENT ================= */
+
         .container {
             height: 100%;
             display: flex;
@@ -81,6 +85,7 @@
             align-items: center;
             text-align: center;
             animation: fadeIn 2s ease forwards;
+            padding: 0 20px;
             z-index: 3;
         }
 
@@ -91,24 +96,22 @@
 
         p {
             font-size: 2em;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        /* Discord icon */
+        /* Discord icon under text */
         .discord-link img {
             width: 70px;
-            margin-bottom: 20px;
             cursor: pointer;
-            opacity: 0.95;
-            transition: transform 0.2s ease, opacity 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .discord-link img:hover {
             transform: scale(1.1);
-            opacity: 1;
         }
 
-        /* Bottom logos */
+        /* ================= BOTTOM LOGOS ================= */
+
         .logos {
             position: absolute;
             bottom: 50px;
@@ -126,19 +129,43 @@
             animation: fadeIn 2s ease forwards;
         }
 
-        /* SKIB mini game */
+        /* ================= QUESTION MARK EASTER EGG ================= */
+
+        .question {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .geek-img {
+            position: absolute;
+            bottom: 60px;
+            right: 20px;
+            width: 120px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .question:hover + .geek-img {
+            opacity: 1;
+        }
+
+        /* ================= SKIB MINI GAME ================= */
+
         #skib {
             position: absolute;
             width: 80px;
             cursor: pointer;
             opacity: 0;
-            transition: opacity 0.6s ease, transform 0.2s ease;
-            z-index: 1;
+            transition: opacity 0.3s ease;
+            z-index: 6;
         }
 
-        #skib.show {
-            opacity: 1;
-        }
+        /* ================= ANIMATIONS ================= */
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -149,30 +176,32 @@
             from { opacity: 0; transform: translateY(100px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation -->
+    <!-- NAVIGATION -->
     <div class="top-nav">
-        <a href="./" class="nav-btn">HOME</a>
-        <a href="smp/" class="nav-btn">SMP</a>
+        <a href="/" class="nav-btn">HOME</a>
+        <a href="/smp/" class="nav-btn">MCSMP</a>
+        <a href="/rust/" class="nav-btn">RUST SMP</a>
     </div>
 
     <!-- Background -->
     <div class="bg"></div>
 
-    <!-- Center Content -->
+    <!-- Main Content -->
     <div class="container">
         <h1>Welcome to KrazyDav.GG</h1>
         <p>More Content Coming Soon...</p>
 
         <a class="discord-link" href="https://discord.gg/4V9fQgtzhw" target="_blank">
-            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Join Discord">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Discord">
         </a>
     </div>
 
-    <!-- Bottom Logos -->
+    <!-- Bottom Icons -->
     <div class="logos">
         <a href="https://www.youtube.com/@KrazyDavLP" target="_blank">
             <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995296/ytlogo_atghhp.webp" alt="YouTube">
@@ -182,36 +211,35 @@
         </a>
     </div>
 
+    <!-- Question Easter Egg -->
+    <div class="question">?</div>
+    <img src="assets/geekdav.gif" class="geek-img">
+
     <!-- SKIB Mini Game -->
-    <img id="skib" src="assets/SKIB.png" alt="SKIB">
-    <audio id="hitSound" src="assets/ow.mp3"></audio>
+    <img src="assets/SKIB.png" id="skib">
+    <audio id="owSound" src="assets/ow.mp3"></audio>
 
     <script>
         const skib = document.getElementById("skib");
-        const sound = document.getElementById("hitSound");
+        const sound = document.getElementById("owSound");
+        sound.volume = 0.3;
 
-        sound.volume = 0.1;
-
-        function randomPosition() {
-            const padding = 140;
-            const x = Math.random() * (window.innerWidth - padding);
-            const y = Math.random() * (window.innerHeight - padding);
-
+        function moveSkib() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
             skib.style.left = x + "px";
             skib.style.top = y + "px";
-
-            skib.classList.remove("show");
-            void skib.offsetWidth;
-            skib.classList.add("show");
+            skib.style.opacity = 1;
         }
 
         skib.addEventListener("click", () => {
             sound.currentTime = 0;
             sound.play();
-            randomPosition();
+            skib.style.opacity = 0;
+            setTimeout(moveSkib, 300);
         });
 
-        window.addEventListener("load", randomPosition);
+        window.onload = moveSkib;
     </script>
 
 </body>

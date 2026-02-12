@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrazyDav.GG Rust SMP</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dz6memin4/image/upload/v1769987818/Rebrand2025_pvnvww.jpg">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            background-color: #3768b5;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            position: absolute;
+            top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            font-size: 1.4em;
+            font-weight: bold;
+            padding: 10px 22px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Background Image */
+        .bg {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -2;
+        }
+
+        .bg::before {
+            content: "";
+            width: 44%;
+            aspect-ratio: 16 / 9;
+            background:
+                linear-gradient(rgba(55, 104, 181, 0.7), rgba(55, 104, 181, 0.7)),
+                url("https://res.cloudinary.com/dz6memin4/image/upload/v1770852612/images_2_svzpib.png")
+                center / contain no-repeat;
+            opacity: 0;
+            transform: translateY(80px);
+            animation: imageFlyUpFade 2s ease-out forwards;
+        }
+
+        /* Center Content */
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 2s ease forwards;
+            padding: 0 20px;
+            z-index: 3;
+        }
+
+        h1 {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.9em;
+            margin-bottom: 25px;
+            max-width: 1000px;
+        }
+
+        /* Discord Icon */
+        .discord-link img {
+            width: 70px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .discord-link img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        /* Bottom Logos */
+        .logos {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 3;
+        }
+
+        .logos img {
+            width: 60px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 2s ease forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes imageFlyUpFade {
+            from { opacity: 0; transform: translateY(100px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="top-nav">
+        <a href="../" class="nav-btn">HOME</a>
+        <a href="../smp/" class="nav-btn">MCSMP</a>
+        <a href="./" class="nav-btn">RUST SMP</a>
+    </div>
+
+    <!-- Background -->
+    <div class="bg"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>KrazyDav.GG Rust SMP</h1>
+        <p>
+            Wanna play A Rust Server with the same chill vibe of a Minecraft SMP?
+            Look no further! KrazyDav.GG SMP!
+            Check the Discord for more info under <strong>#rust-smp-info</strong>.
+        </p>
+
+        <!-- Discord Icon -->
+        <a class="discord-link" href="https://discord.gg/4V9fQgtzhw" target="_blank">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Join Discord">
+        </a>
+    </div>
+
+    <!-- Bottom Icons -->
+    <div class="logos">
+        <a href="https://www.youtube.com/@KrazyDavLP" target="_blank">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995296/ytlogo_atghhp.webp" alt="YouTube">
+        </a>
+        <a href="https://www.twitch.tv/krazydavlp" target="_blank">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995355/twitchlogo_fbgy9z.webp" alt="Twitch">
+        </a>
+    </div>
+
+</body>
+</html>
