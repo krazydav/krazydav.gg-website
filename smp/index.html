@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>KrazyDav.gg SMP!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrazyDav.GG MCSMP</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dz6memin4/image/upload/v1769987818/Rebrand2025_pvnvww.jpg">
@@ -22,7 +23,8 @@
             color: white;
         }
 
-        /* Top Navigation */
+        /* ================= TOP NAV ================= */
+
         .top-nav {
             position: absolute;
             top: 30px;
@@ -39,17 +41,23 @@
             font-size: 1.4em;
             font-weight: bold;
             padding: 10px 22px;
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255,255,255,0.6);
             border-radius: 10px;
             transition: transform 0.2s ease, background 0.2s ease;
         }
 
         .nav-btn:hover {
             transform: scale(1.2);
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,0.15);
         }
 
-        /* Background image behind text */
+        /* Highlight current page */
+        .active {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* ================= BACKGROUND ================= */
+
         .bg {
             position: fixed;
             inset: 0;
@@ -61,18 +69,19 @@
 
         .bg::before {
             content: "";
-            width: 50%;
+            width: 44%;
             aspect-ratio: 16 / 9;
             background:
-                linear-gradient(rgba(55, 104, 181, 0.7), rgba(55, 104, 181, 0.7)),
-                url("https://res.cloudinary.com/dz6memin4/image/upload/v1770057518/mcdav_ecg48p.png")
+                linear-gradient(rgba(55,104,181,0.7), rgba(55,104,181,0.7)),
+                url("https://res.cloudinary.com/dz6memin4/image/upload/v1769987818/Rebrand2025_pvnvww.jpg")
                 center / contain no-repeat;
             opacity: 0;
             transform: translateY(80px);
             animation: imageFlyUpFade 2s ease-out forwards;
         }
 
-        /* Center content */
+        /* ================= CENTER CONTENT ================= */
+
         .container {
             height: 100%;
             display: flex;
@@ -81,34 +90,33 @@
             align-items: center;
             text-align: center;
             animation: fadeIn 2s ease forwards;
+            padding: 0 20px;
             z-index: 3;
         }
 
         h1 {
             font-size: 5em;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         p {
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: 1.6em;
+            max-width: 900px;
+            margin-bottom: 30px;
         }
 
-        /* Discord icon */
         .discord-link img {
             width: 70px;
-            margin-bottom: 20px;
             cursor: pointer;
-            opacity: 0.95;
-            transition: transform 0.2s ease, opacity 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .discord-link img:hover {
             transform: scale(1.1);
-            opacity: 1;
         }
 
-        /* Bottom logos */
+        /* ================= BOTTOM LOGOS ================= */
+
         .logos {
             position: absolute;
             bottom: 50px;
@@ -122,9 +130,10 @@
         .logos img {
             width: 60px;
             opacity: 0;
-            transform: translateY(10px);
             animation: fadeIn 2s ease forwards;
         }
+
+        /* ================= ANIMATIONS ================= */
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -135,31 +144,34 @@
             from { opacity: 0; transform: translateY(100px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation -->
+    <!-- NAVIGATION -->
     <div class="top-nav">
-        <a href="../" class="nav-btn">HOME</a>
-        <a href="./" class="nav-btn">SMP</a>
+        <a href="/" class="nav-btn">HOME</a>
+        <a href="/smp/" class="nav-btn active">MCSMP</a>
     </div>
 
     <!-- Background -->
     <div class="bg"></div>
 
-    <!-- Center Content -->
+    <!-- Main Content -->
     <div class="container">
-        <h1>KrazyDav.GG SMP!</h1>
-        <p>Welcome to The KrazyDav.GG SMP! To join, join the Discord Server and look under #smp-info-modpack.</p>
+        <h1>KrazyDav.GG MCSMP</h1>
+        <p>
+            Welcome to The KrazyDav.GG SMP!  
+            To join, join the Discord Server and look under #smp-info-modpack.
+        </p>
 
-        <!-- Discord icon under body text -->
         <a class="discord-link" href="https://discord.gg/4V9fQgtzhw" target="_blank">
-            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Join Discord">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Discord">
         </a>
     </div>
 
-    <!-- Bottom Logos -->
+    <!-- Bottom Icons -->
     <div class="logos">
         <a href="https://www.youtube.com/@KrazyDavLP" target="_blank">
             <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995296/ytlogo_atghhp.webp" alt="YouTube">
