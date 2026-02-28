@@ -51,12 +51,11 @@
             background: rgba(255,255,255,0.15);
         }
 
-        /* Highlight current page */
         .active {
             background: rgba(255,255,255,0.2);
         }
 
-        /* ================= BACKGROUND ================= */
+        /* ================= BACKGROUND IMAGE ================= */
 
         .bg {
             position: fixed;
@@ -69,11 +68,11 @@
 
         .bg::before {
             content: "";
-            width: 44%;
-            aspect-ratio: 16 / 9;
+            width: 38%; /* Smaller size */
+            aspect-ratio: 1 / 1;
             background:
                 linear-gradient(rgba(55,104,181,0.7), rgba(55,104,181,0.7)),
-                url("https://res.cloudinary.com/dz6memin4/image/upload/v1769987818/Rebrand2025_pvnvww.jpg")
+                url("https://res.cloudinary.com/dz6memin4/image/upload/v1770057518/mcdav_ecg48p.png")
                 center / contain no-repeat;
             opacity: 0;
             transform: translateY(80px);
