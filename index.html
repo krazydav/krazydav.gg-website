@@ -246,8 +246,35 @@
 
         sound.volume = 0.3;
 
-        let count = localStorage.getItem("skibClicks") || 0;
-        count = parseInt(count);
+        const STORAGE_KEY = "skibClicks_secure";
+        const HASH_KEY = "skibClicks_hash";
+
+        function hash(val) {
+            return btoa(val + "krazydav_secret");
+        }
+
+        function loadCount() {
+            let stored = localStorage.getItem(STORAGE_KEY);
+            let storedHash = localStorage.getItem(HASH_KEY);
+
+            if (!stored || !storedHash) return 0;
+
+            if (hash(stored) !== storedHash) {
+                console.warn("Tampering detected. Resetting counter.");
+                localStorage.removeItem(STORAGE_KEY);
+                localStorage.removeItem(HASH_KEY);
+                return 0;
+            }
+
+            return parseInt(stored);
+        }
+
+        function saveCount(val) {
+            localStorage.setItem(STORAGE_KEY, val);
+            localStorage.setItem(HASH_KEY, hash(val));
+        }
+
+        let count = loadCount();
         counterEl.textContent = count;
 
         function moveSkib() {
@@ -266,7 +293,7 @@
 
             count++;
             counterEl.textContent = count;
-            localStorage.setItem("skibClicks", count);
+            saveCount(count);
 
             skib.style.opacity = 0;
             setTimeout(moveSkib, 300);
