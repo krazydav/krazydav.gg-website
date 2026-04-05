@@ -127,7 +127,7 @@
             animation: fadeIn 2s ease forwards;
         }
 
-        /* ================= QUESTION MARK EASTER EGG ================= */
+        /* ================= QUESTION MARK ================= */
 
         .question {
             position: absolute;
@@ -152,15 +152,33 @@
             opacity: 1;
         }
 
-        /* ================= SKIB MINI GAME ================= */
+        /* ================= SKIB GAME ================= */
 
-        #skib {
+        #skib-wrapper {
             position: absolute;
             width: 80px;
+            height: 80px;
+            z-index: 6;
+        }
+
+        #skib {
+            width: 100%;
+            height: 100%;
             cursor: pointer;
             opacity: 0;
             transition: opacity 0.3s ease;
-            z-index: 6;
+        }
+
+        #skib-counter {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 0.8em;
+            padding: 4px 7px;
+            border-radius: 10px;
+            pointer-events: none;
         }
 
         /* ================= ANIMATIONS ================= */
@@ -179,7 +197,7 @@
 </head>
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- NAV -->
     <div class="top-nav">
         <a href="/" class="nav-btn">HOME</a>
         <a href="/smp/" class="nav-btn">MCSMP</a>
@@ -188,50 +206,68 @@
     <!-- Background -->
     <div class="bg"></div>
 
-    <!-- Main Content -->
+    <!-- Content -->
     <div class="container">
         <h1>Welcome to KrazyDav.GG</h1>
         <p>More Content Coming Soon...</p>
 
         <a class="discord-link" href="https://discord.gg/4V9fQgtzhw" target="_blank">
-            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp" alt="Discord">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1770057446/disc_bkvhv9.webp">
         </a>
     </div>
 
     <!-- Bottom Icons -->
     <div class="logos">
         <a href="https://www.youtube.com/@KrazyDavLP" target="_blank">
-            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995296/ytlogo_atghhp.webp" alt="YouTube">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995296/ytlogo_atghhp.webp">
         </a>
         <a href="https://www.twitch.tv/krazydavlp" target="_blank">
-            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995355/twitchlogo_fbgy9z.webp" alt="Twitch">
+            <img src="https://res.cloudinary.com/dz6memin4/image/upload/v1769995355/twitchlogo_fbgy9z.webp">
         </a>
     </div>
 
-    <!-- Question Easter Egg -->
+    <!-- Easter Egg -->
     <div class="question">?</div>
     <img src="assets/geekdav.gif" class="geek-img">
 
-    <!-- SKIB Mini Game -->
-    <img src="assets/SKIB.png" id="skib">
+    <!-- SKIB GAME -->
+    <div id="skib-wrapper">
+        <img src="assets/SKIB.png" id="skib">
+        <div id="skib-counter">0</div>
+    </div>
+
     <audio id="owSound" src="assets/ow.mp3"></audio>
 
     <script>
         const skib = document.getElementById("skib");
+        const wrapper = document.getElementById("skib-wrapper");
         const sound = document.getElementById("owSound");
+        const counterEl = document.getElementById("skib-counter");
+
         sound.volume = 0.3;
+
+        let count = localStorage.getItem("skibClicks") || 0;
+        count = parseInt(count);
+        counterEl.textContent = count;
 
         function moveSkib() {
             const x = Math.random() * (window.innerWidth - 100);
             const y = Math.random() * (window.innerHeight - 100);
-            skib.style.left = x + "px";
-            skib.style.top = y + "px";
+
+            wrapper.style.left = x + "px";
+            wrapper.style.top = y + "px";
+
             skib.style.opacity = 1;
         }
 
         skib.addEventListener("click", () => {
             sound.currentTime = 0;
             sound.play();
+
+            count++;
+            counterEl.textContent = count;
+            localStorage.setItem("skibClicks", count);
+
             skib.style.opacity = 0;
             setTimeout(moveSkib, 300);
         });
